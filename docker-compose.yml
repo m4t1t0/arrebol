@@ -4,7 +4,6 @@ services:
     db:
         container_name: arrebol-db
         image: postgres
-        restart: always
         environment:
             POSTGRES_PASSWORD: 123456
         ports:
