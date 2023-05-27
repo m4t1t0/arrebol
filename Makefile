@@ -42,4 +42,4 @@ stop: ## Stop this project
 
 .PHONY: bash
 bash: ## Takes you inside the app container
-	$(DOCKER_COMPOSE) exec app sh
+	$(DOCKER_COMPOSE) exec php-fpm sh

@@ -10,6 +10,6 @@ class MainController extends AbstractController
     #[Route('/', name: 'index')]
     public function index(): Response
     {
-        return new Response('<html><body>Hola caracola</body></html>');
+        return new Response('<html><body>Hola caracola de nuevo!</body></html>');
     }
 }
