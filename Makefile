@@ -28,6 +28,10 @@ help: ## Display help
 
 ##@ Main commands
 
+.PHONY: initialize
+initialize: ## Initialize this project
+	$(DOCKER_COMPOSE) build --no-cache && $(DOCKER_COMPOSE) up -d --force-recreate
+
 .PHONY: start
 start: ## Start this project
 	$(DOCKER_COMPOSE) up -d --remove-orphans

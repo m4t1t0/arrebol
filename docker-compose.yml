@@ -11,7 +11,8 @@ services:
 
     php-fpm:
         container_name: arrebol-php-fpm
-        image: php:8-fpm
+        build:
+            dockerfile: ./docker/php-fpm/Dockerfile
         volumes:
             - .:/var/www/html
         depends_on:
@@ -20,11 +21,13 @@ services:
     nginx:
         image: nginx:latest
         container_name: arrebol-nginx
+        extra_hosts:
+            - "host.docker.internal:host-gateway"
         ports:
             - "8080:80"
         volumes:
             - .:/var/www/html
-            - ./default.conf:/etc/nginx/conf.d/default.conf
+            - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
         depends_on:
             - php-fpm
         links:
